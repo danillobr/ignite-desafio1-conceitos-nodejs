@@ -13,7 +13,7 @@ const users = [];
 function checksExistsUserAccount(request, response, next) {
   const { username } = request.headers;
 
-  const user = users.find((users) => user.username === username);
+  const user = users.find((user) => user.username === username);
 
   if (!user) {
     return response.status(400).json({ error: "User not found!" })
@@ -31,8 +31,8 @@ app.post('/users', (request, response) => {
     (user) => user.username === username
   );
 
-  if(userAlreadyExists){
-    return response.status(400).json({error: "User already exists!"});
+  if (userAlreadyExists) {
+    return response.status(400).json({ error: "User already exists!" });
   }
 
   const id = uuidv4();
@@ -48,7 +48,9 @@ app.post('/users', (request, response) => {
 });
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
-
+  const { user } = request;
+ 
+  return response.json(user.todos);
 });
 
 app.post('/todos', checksExistsUserAccount, (request, response) => {

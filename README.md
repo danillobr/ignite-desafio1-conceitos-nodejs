@@ -20,8 +20,8 @@
 Esta é uma API para gerenciar tarefas (em inglês todos), em que é permitida a criação de um usuário com `name` e `username` bem como fazer o CRUD (Create, Read, Update and Delete ) de todos.
 
 ## :hammer_and_wrench: Funcionalidades:
-- [ ] Criar uma nova todo.
-- [ ] Listar todas as todos.
+- [x] Criar uma nova todo.
+- [x] Listar todas as todos.
 - [ ] Alterar o `title` e `deadline` de um todo existente.
 - [ ] Marcar uma todo como `done`.
 - [ ] Excluir uma todo.
