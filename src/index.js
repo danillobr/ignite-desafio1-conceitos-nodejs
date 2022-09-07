@@ -59,7 +59,7 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
   const { user } = request;
   const id = uuidv4();
 
-  const newTodos = {
+  const newTodo = {
     id,
     title,
     done: false,
@@ -67,7 +67,7 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
     created_at: new Date(),
   };
 
-  user.todos.push(newTodos);
+  user.todos.push(newTodo);
 
   return response.status(201).send();
 });
@@ -77,10 +77,10 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
   const { user } = request;
   const { id } = request.params;
   
-  updateTodos = user.todos.find((todos) => todos.id === id);
+  updateTodo = user.todos.find((todo) => todo.id === id);
 
-  updateTodos.title = title;
-  updateTodos.deadline = deadline;
+  updateTodo.title = title;
+  updateTodo.deadline = deadline;
 
   return response.status(200).send();
 
