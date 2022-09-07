@@ -73,7 +73,17 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
 });
 
 app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
-  // Complete aqui
+  const { title, deadline } = request.body;
+  const { user } = request;
+  const { id } = request.params;
+  
+  updateTodos = user.todos.find((todos) => todos.id === id);
+
+  updateTodos.title = title;
+  updateTodos.deadline = deadline;
+
+  return response.status(200).send();
+
 });
 
 app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {

@@ -22,7 +22,7 @@ Esta é uma API para gerenciar tarefas (em inglês todos), em que é permitida a
 ## :hammer_and_wrench: Funcionalidades:
 - [x] Criar uma nova todo.
 - [x] Listar todas as todos.
-- [ ] Alterar o `title` e `deadline` de um todo existente.
+- [x] Alterar o `title` e `deadline` de um todo existente.
 - [ ] Marcar uma todo como `done`.
 - [ ] Excluir uma todo.
 
