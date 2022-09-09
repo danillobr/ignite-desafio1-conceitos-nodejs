@@ -37,14 +37,16 @@ app.post('/users', (request, response) => {
 
   const id = uuidv4();
 
-  users.push({
+  const user = {
     id,
     name,
     username,
     todos: [],
-  });
+  }
 
-  return response.status(201).send();
+  users.push(user);
+
+  return response.status(201).json(user);
 });
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
@@ -86,7 +88,7 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
   updateTodo.title = title;
   updateTodo.deadline = new Date(deadline);
 
-  return response.status(200).send();
+  return response.status(200).send(updateTodo);
 
 });
 
@@ -102,7 +104,7 @@ app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
 
   updateTodo.done = true;
 
-  return response.status(200).send();
+  return response.status(200).json(updateTodo);
 });
 
 app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {
@@ -117,7 +119,7 @@ app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {
 
   user.todos.splice(todo, 1);
 
-  return response.status(200).send();
+  return response.status(204).json();
 });
 
 module.exports = app;
