@@ -23,8 +23,8 @@ Esta é uma API para gerenciar tarefas (em inglês todos), em que é permitida a
 - [x] Criar uma nova todo.
 - [x] Listar todas as todos.
 - [x] Alterar o `title` e `deadline` de um todo existente.
-- [ ] Marcar uma todo como `done`.
-- [ ] Excluir uma todo.
+- [x] Marcar uma todo como `done`.
+- [x] Excluir uma todo.
 
 ## :link: Rotas:
 - POST `/users`: cria um novo usuário.
